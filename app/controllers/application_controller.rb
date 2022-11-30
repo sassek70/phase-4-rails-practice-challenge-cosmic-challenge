@@ -6,10 +6,10 @@ class ApplicationController < ActionController::API
 
 
     def not_found(error)
-        render json: {errors: ["Scientist Not Found"]}, status: :not_found
+        render json: {error: "Scientist not found"}, status: :not_found
     end
     
   def render_unprocessable_entity_response(invalid)
-    render json: { errors: invalid.record.errors }, status: :unprocessable_entity
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 end

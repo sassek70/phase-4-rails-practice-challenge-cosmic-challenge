@@ -8,7 +8,7 @@ class ScientistsController < ApplicationController
 
     def show
         scientist = Scientist.find(params[:id])
-        render json: scientist
+        render json: scientist, serializer: ScientistMissionsSerializer
     end
 
     def create
